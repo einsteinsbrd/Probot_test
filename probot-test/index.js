@@ -8,7 +8,7 @@ module.exports = (app) => {
 
   app.on("issues.opened", async (context) => {
     const issueComment = context.issue({
-      body: "Thanks for opening this issue!",
+      body: "/cib",
     });
     let issueName = await context.octokit.request(`GET /repos/${issueComment.owner}/${issueComment.repo}/issues/${issueComment.issue_number}`)
     console.log(issueName.data['title'])
