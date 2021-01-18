@@ -12,7 +12,6 @@ jobs:
         steps:
         - name: Create Issue Branch
           uses: robvanderleek/create-issue-branch@v1.4
-          mode: chatops
           env:
             GITHUB_TOKEN: ${{ secrets.GOD_TOKEN }}
         - name: Echo branch name
