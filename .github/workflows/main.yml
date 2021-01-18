@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: Create Issue Branch
-          uses: robvanderleek/create-issue-branch@v1.4
+          uses: robvanderleek/create-issue-branch@master
           env:
             GITHUB_TOKEN: ${{ secrets.GOD_TOKEN }}
         - name: Echo branch name
