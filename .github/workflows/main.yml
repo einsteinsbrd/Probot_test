@@ -15,11 +15,11 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GOD_TOKEN }}
         - name: Echo branch name
-          run: echo ${{ steps.Create_Issue_Branch.outputs.branchName }}
+          run: echo ${branchName}
         - name: Checkout the new Branch
           uses: actions/checkout@v2
           with:
-            ref: ${[ steps.Create_Issue_Branch.outputs.branchName }}
+            ref: ${{ steps.Create_Issue_Branch.outputs.branchName }}
         - name: Running local commands through Git
           run: git submodule add https://github.com/action/checkout
         - name: Running a local add for new requested action
