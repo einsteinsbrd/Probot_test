@@ -16,3 +16,15 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GOD_TOKEN }}
         - name: Echo branch name
           run: echo ${{ steps.Create_Issue_Branch.outputs.branchName }}
+        - name: Checkout the new Branch
+          uses: actions/checkout@v2
+          with:
+            ref: ${[ steps.Create_Issue_Branch.outputs.branchName }}
+        - name: Running local commands through Git
+          run: git submodule add https://github.com/action/checkout
+        - name: Running a local add for new requested action
+          run: git add .
+        - name: Running a local commit for new requested action
+          run: git commit -am "This commit was done by the CI aciton workflow"
+        - name: Running a local git push for new request action
+          run: git push
